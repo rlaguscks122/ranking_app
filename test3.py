@@ -13,11 +13,13 @@ while True:
     wb = openpyxl.load_workbook(fpath)
     ws = wb.active
 
-    unisent = webdriver.Chrome("/usr/bin/chromedriver")
-    url="https://sjnim.com/"
+    options = webdriver.ChromeOptions()
+    options.add_argument("--headless")
+    unisent = webdriver.Chrome("/usr/bin/chromedriver", options=options)
+    url = "https://sjnim.com/"
     unisent.get(url)
     unisent.implicitly_wait(5)
-    unisent.maximize_window()
+    # unisent.maximize_window()
 
     move_page = unisent.find_element(By.CSS_SELECTOR, "#store_search_show")
     move_page.click()
