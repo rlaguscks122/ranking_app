@@ -8,11 +8,13 @@ import openpyxl
 import time
 
 row = 2
+
 while True:
+    print('loop start!!!') 
     fpath = r'rank_data.xlsx'
     wb = openpyxl.load_workbook(fpath)
     ws = wb.active
-
+    
     options = webdriver.ChromeOptions()
     options.add_argument("--headless")
     unisent = webdriver.Chrome("/usr/bin/chromedriver", options=options)
@@ -20,7 +22,7 @@ while True:
     unisent.get(url)
     unisent.implicitly_wait(5)
     # unisent.maximize_window()
-
+    print('inner site!!!')
     move_page = unisent.find_element(By.CSS_SELECTOR, "#store_search_show")
     move_page.click()
 
@@ -39,7 +41,7 @@ while True:
 
     login_btn = unisent.find_element(By.XPATH, '//*[@id="login-form"]/fieldset/div[8]/button[1]')
     login_btn.click()
-
+    print('success login!!!')
     unisent.switch_to.window(unisent.window_handles[0])
 
     close_pop = unisent.find_element(By.CSS_SELECTOR, '#hd_pops_6 > div.hd_pops_footer > button.hd_pops_close.hd_pops_6')
@@ -75,8 +77,8 @@ while True:
     row = row + 1
 
     wb.save(fpath)
-
-
+    print('data save!!!')
+    unisent.close()
     unisent.quit()
     print("2분마다 가져올것")
     time.sleep(120)
