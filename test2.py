@@ -7,7 +7,6 @@ from selenium.webdriver.common.keys import Keys
 import time
 
 while True:
-    print('start!!!')
     unisent = webdriver.Chrome("c:/python-codes/selenium-script/chromedriver.exe")
     url="https://sjnim.com/"
     unisent.get(url)

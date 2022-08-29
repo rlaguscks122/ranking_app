@@ -9,11 +9,11 @@ import time
 
 row = 2
 while True:
-    fpath = r'C:\python-codes\ranking-test\rankingdate\rank_data.xlsx'
+    fpath = r'rank_data.xlsx'
     wb = openpyxl.load_workbook(fpath)
     ws = wb.active
 
-    unisent = webdriver.Chrome("c:/python-codes/selenium-script/chromedriver.exe")
+    unisent = webdriver.Chrome("/usr/bin/chromedriver")
     url="https://sjnim.com/"
     unisent.get(url)
     unisent.implicitly_wait(5)
@@ -74,7 +74,6 @@ while True:
 
     wb.save(fpath)
 
-    print('hello')
 
     unisent.quit()
     print("2분마다 가져올것")
