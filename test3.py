@@ -74,6 +74,7 @@ while True:
 
     wb.save(fpath)
 
+    print('hello')
 
     unisent.quit()
     print("2분마다 가져올것")
